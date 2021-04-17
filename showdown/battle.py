@@ -491,7 +491,9 @@ class Pokemon:
             return
         additional_moves = get_all_likely_moves(self.name, [m.name for m in self.moves])
         for m in additional_moves:
-            self.moves.append(Move(m))
+            # check that the move not Nothing
+            if(m != ''): 
+                self.moves.append(Move(m))
 
     def set_most_likely_ability_unless_revealed(self):
         if self.ability is not None:
